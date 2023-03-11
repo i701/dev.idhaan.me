@@ -87,7 +87,7 @@ const Navbar = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     transition={{ duration: 0.15 }}
-                    className="bg-gray-50 border shadow z-50 absolute right-0 flex flex-col"
+                    className="bg-white border shadow-md z-50 absolute right-0 flex flex-col"
                   >
                     {links.map((link) => (
                       <Menu.Item key={link.path}>
