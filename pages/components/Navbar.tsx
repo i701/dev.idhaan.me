@@ -3,75 +3,68 @@ import { useRouter } from "next/router"
 import { BarsArrowDownIcon } from "@heroicons/react/24/solid"
 import { Menu } from "@headlessui/react"
 import { motion } from "framer-motion"
-import useSound from "use-sound"
 import { Space_Mono } from "next/font/google"
-const space = Space_Mono({ weight: "400", subsets: [] })
+import { DarkModeSwitch } from "react-toggle-dark-mode"
+import { useTheme } from "next-themes"
+import ThemeButton from "./ThemeButton"
+import { useEffect, useState } from "react"
 
+const space = Space_Mono({ weight: "400", subsets: [] })
 const links = [
   {
     name: "Projects",
     path: "/projects",
-    sound: "/click.wav",
   },
   {
     name: "Listen with me",
     path: "/listen",
-    sound: "/click.wav",
   },
   {
     name: "Memes",
     path: "/memes",
-    sound: "/boom.mp3",
   },
   {
     name: "Snippets",
     path: "/snippets",
-    sound: "/click.wav",
   },
   {
     name: "Education",
     path: "/education",
-    sound: "/click.wav",
   },
 ]
 
 const Navbar = () => {
-  const memeSounds = ["/boom.mp3", "/huh.wav"]
-  const randomMemeSound =
-    memeSounds[Math.floor(Math.random() * memeSounds.length)]
-  const [playClick] = useSound("/click.wav", { volume: 0.4 })
-  const [playMeme] = useSound(`${randomMemeSound}`, { volume: 0.2 })
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true))
+
+  const { theme, setTheme } = useTheme()
   const router = useRouter()
   return (
     <nav
-      className={`w-full z-50 shadow bg-white  text-gray-700 fixed ${space.className}`}
+      className={`dark:text-gray-500 w-full z-50 shadow dark:border-b-2 dark:border-orange-900/50 bg-white dark:bg-smoky-black  text-gray-700 fixed ${space.className}`}
     >
       <div className="flex px-6 md:px-6 h-16 max-w-5xl mx-auto items-center justify-between ">
-        <Link className="border-b-2 hover:border-b-orange-500" href="/">
-          01101001
+        <Link
+          className="transition duration-150 border-b-2 dark:hover:border-b-orange-500 hover:border-b-orange-500 dark:border-gray-700"
+          href="/"
+        >
+          {"bruh"}
         </Link>
-        <ul className={`md:flex hidden gap-8 ${space.className}`}>
+        <ul className={`md:flex items-center hidden gap-8 ${space.className}`}>
           {links.map((link) => (
             <Link
-              onClick={() => {
-                {
-                  link.sound == "/click.wav" ? playClick() : playMeme()
-                }
-              }}
-              onMouseLeave={() => {
-                stop()
-              }}
               key={link.path}
               href={`${link.path}`}
               className={`${
                 router.pathname == `${link.path}`
                   ? "text-orange-600 border-b-orange"
                   : ""
-              } transition duration-150 text-lg hover:border-b-orange-500 border-b-2 flex gap-2 items-center tracking-tight`}
+              } transition duration-150 text-lg dark:hover:border-b-orange-500 hover:border-b-orange-500 dark:border-gray-700 border-b-2 flex gap-2 items-center tracking-tight`}
             >
               <p>{link.name}</p>
             </Link>
           ))}
+          {mounted && <ThemeButton />}
         </ul>
         <div className="relative block md:hidden">
           <Menu>
@@ -93,20 +86,10 @@ const Navbar = () => {
                       <Menu.Item key={link.path}>
                         {({ active }) => (
                           <Link
-                            onClick={() => {
-                              {
-                                link.sound == "/click.wav"
-                                  ? playClick()
-                                  : playMeme()
-                              }
-                            }}
-                            onMouseLeave={() => {
-                              stop()
-                            }}
                             href={link.path}
                             className={`${
                               active ? "bg-gray-200" : ""
-                            } whitespace-no-wrap gap-2 px-5 py-3 w-52 flex items-center justify-between `}
+                            } text-sm whitespace-no-wrap gap-2 px-5 py-3 w-52 flex items-center justify-between `}
                           >
                             {link.name}
                             {/* <CodeBracketIcon className="h-5 w-5 text-gray-500" /> */}
