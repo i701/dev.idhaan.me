@@ -14,6 +14,10 @@ type Data = {
   isPlaying: boolean
 }
 
+type Artist = {
+  name: string
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType | Data>
@@ -32,7 +36,9 @@ export default async function handler(
 
   const isPlaying = song.is_playing
   const title = song.item.name
-  const artist = song.item.artists[0].name
+  const artist = song.item.artists
+    .map((_artist: Artist) => _artist.name)
+    .join(", ")
   const album = song.item.album.name
   const albumImageUrl = song.item.album.images[0].url
   const songUrl = song.item.external_urls.spotify
