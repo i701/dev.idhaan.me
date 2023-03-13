@@ -80,7 +80,7 @@ const Navbar = () => {
             <Menu>
               {({ open }) => (
                 <>
-                  <Menu.Button className="p-2 transition duration-150 ease-in-out rounded-full hover:bg-gray-200">
+                  <Menu.Button className="p-2 transition duration-150 ease-in-out rounded-full focus:ring-2 focus:ring-orange-500 focus:outline-none">
                     <BarsArrowDownIcon className="h-6 w-6 text-slate-500" />
                   </Menu.Button>
                   {open && (
@@ -90,7 +90,7 @@ const Navbar = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       transition={{ duration: 0.15 }}
-                      className="bg-white border shadow-md z-50 absolute right-0 flex flex-col"
+                      className="bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none rounded dark:bg-gray-900 shadow-md z-50 absolute right-0 flex flex-col"
                     >
                       {links.map((link) => (
                         <Menu.Item key={link.path}>
@@ -98,7 +98,9 @@ const Navbar = () => {
                             <Link
                               href={link.path}
                               className={`${
-                                active ? "bg-gray-200" : ""
+                                active
+                                  ? "bg-gray-200 dark:bg-gray-800 text-orange-400"
+                                  : ""
                               } text-sm whitespace-no-wrap gap-2 px-5 py-3 w-52 flex items-center justify-between `}
                             >
                               {link.name}
