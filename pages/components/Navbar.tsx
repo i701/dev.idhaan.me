@@ -41,67 +41,77 @@ const Navbar = () => {
   const router = useRouter()
   return (
     <nav
-      className={`dark:text-gray-500 w-full z-50 shadow dark:border-b-2 dark:border-orange-900/50 bg-white dark:bg-smoky-black  text-gray-700 fixed ${space.className}`}
+      className={`w-full z-50 shadow dark:border-b-2 dark:border-orange-900/50 bg-white dark:bg-smoky-black  text-gray-600 dark:text-gray-400 fixed ${space.className}`}
     >
-      <div className="flex px-6 md:px-6 h-16 max-w-5xl mx-auto items-center justify-between ">
+      <div className="flex gap-2 px-6 md:px-6 h-16 max-w-5xl mx-auto items-center justify-between ">
         <Link
-          className="transition duration-150 border-b-2 dark:hover:border-b-orange-500 hover:border-b-orange-500 dark:border-gray-700"
+          className="text-lg transition duration-150 border-b-2
+           dark:hover:border-b-orange-500 hover:border-b-orange-500
+           focus:outline-none focus:border-orange-500 dark:focus:border-orange-500 dark:border-gray-700"
           href="/"
         >
-          {"bruh"}
+          {"01101001"}
         </Link>
-        <ul className={`md:flex items-center hidden gap-8 ${space.className}`}>
-          {links.map((link) => (
-            <Link
-              key={link.path}
-              href={`${link.path}`}
-              className={`${
-                router.pathname == `${link.path}`
-                  ? "text-orange-600 border-b-orange"
-                  : ""
-              } transition duration-150 text-lg dark:hover:border-b-orange-500 hover:border-b-orange-500 dark:border-gray-700 border-b-2 flex gap-2 items-center tracking-tight`}
-            >
-              <p>{link.name}</p>
-            </Link>
-          ))}
+        <div className="flex items-center gap-2">
+          <ul
+            className={`px-4 md:flex items-center hidden gap-8 ${space.className}`}
+          >
+            {links.map((link) => (
+              <Link
+                key={link.path}
+                href={`${link.path}`}
+                className={`${
+                  router.pathname == `${link.path}`
+                    ? "text-orange-600 border-b-orange"
+                    : ""
+                } transition duration-150 text-lg dark:hover:border-b-orange-500
+              hover:border-b-orange-500 dark:border-gray-700 border-b-2
+                focus:outline-none focus:border-orange-500 dark:focus:border-orange-500
+                flex gap-2 items-center tracking-tight`}
+              >
+                <p>{link.name}</p>
+              </Link>
+            ))}
+            {/* {mounted && <ThemeButton />} */}
+          </ul>
           {mounted && <ThemeButton />}
-        </ul>
-        <div className="relative block md:hidden">
-          <Menu>
-            {({ open }) => (
-              <>
-                <Menu.Button className="p-2 transition duration-150 ease-in-out rounded-full hover:bg-gray-200">
-                  <BarsArrowDownIcon className="h-6 w-6 text-gray-500" />
-                </Menu.Button>
-                {open && (
-                  <Menu.Items
-                    as={motion.div}
-                    static
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    transition={{ duration: 0.15 }}
-                    className="bg-white border shadow-md z-50 absolute right-0 flex flex-col"
-                  >
-                    {links.map((link) => (
-                      <Menu.Item key={link.path}>
-                        {({ active }) => (
-                          <Link
-                            href={link.path}
-                            className={`${
-                              active ? "bg-gray-200" : ""
-                            } text-sm whitespace-no-wrap gap-2 px-5 py-3 w-52 flex items-center justify-between `}
-                          >
-                            {link.name}
-                            {/* <CodeBracketIcon className="h-5 w-5 text-gray-500" /> */}
-                          </Link>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                )}
-              </>
-            )}
-          </Menu>
+
+          <div className="relative block md:hidden">
+            <Menu>
+              {({ open }) => (
+                <>
+                  <Menu.Button className="p-2 transition duration-150 ease-in-out rounded-full hover:bg-gray-200">
+                    <BarsArrowDownIcon className="h-6 w-6 text-slate-500" />
+                  </Menu.Button>
+                  {open && (
+                    <Menu.Items
+                      as={motion.div}
+                      static
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      transition={{ duration: 0.15 }}
+                      className="bg-white border shadow-md z-50 absolute right-0 flex flex-col"
+                    >
+                      {links.map((link) => (
+                        <Menu.Item key={link.path}>
+                          {({ active }) => (
+                            <Link
+                              href={link.path}
+                              className={`${
+                                active ? "bg-gray-200" : ""
+                              } text-sm whitespace-no-wrap gap-2 px-5 py-3 w-52 flex items-center justify-between `}
+                            >
+                              {link.name}
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </Menu.Items>
+                  )}
+                </>
+              )}
+            </Menu>
+          </div>
         </div>
       </div>
     </nav>
