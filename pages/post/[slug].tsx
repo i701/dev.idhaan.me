@@ -9,6 +9,7 @@ import rehypeHighlight from "rehype-highlight"
 import { getPostFromSlug, getSlugs, PostMeta } from "@/src/postApi"
 // import YouTube from "@/src/components/youTube";
 import "highlight.js/styles/atom-one-dark.css"
+import { MDXComponents } from "../components/MDXComponents"
 
 interface MDXPost {
   source: MDXRemoteSerializeResult<Record<string, unknown>>
@@ -39,7 +40,7 @@ const PostPage = ({ post }: { post: MDXPost }) => {
         <h1 className="text-2xl md:text-4xl font-bold text-gray-500 ">
           {post.meta.title}
         </h1>
-        <MDXRemote {...post.source} />
+        <MDXRemote {...post.source} components={MDXComponents} />
       </article>
     </>
   )
