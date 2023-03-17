@@ -9,7 +9,7 @@ import rehypeHighlight from "rehype-highlight"
 import { getPostFromSlug, getSlugs, PostMeta } from "@/src/postApi"
 // import YouTube from "@/src/components/youTube";
 import "highlight.js/styles/atom-one-dark.css"
-import { MDXComponents } from "../components/MDXComponents"
+import MDXComponents from "../components/MDXComponents"
 
 interface MDXPost {
   source: MDXRemoteSerializeResult<Record<string, unknown>>
@@ -24,17 +24,9 @@ const PostPage = ({ post }: { post: MDXPost }) => {
       </Head>
       <article
         className="prose-sm md:prose-lg
-        prose-pre:bg[#282c34]
-        prose-pre:px-0
+        prose-pre:!m-0
         prose-li:list-disc
         prose-a:text-orange-600
-        prose-code:bg-gray-200/80
-        prose-code:dark:bg-slate-600/40
-        prose-code:dark:text-slate-400
-        prose-code:px-1
-        prose-code:rounded
-        prose-code:md:text-base
-        prose-code:text-xs
         "
       >
         <h1 className="text-2xl md:text-4xl font-bold text-gray-500 ">
