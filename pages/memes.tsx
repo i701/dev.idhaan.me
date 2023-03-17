@@ -21,7 +21,9 @@ const Memes = () => {
               <p>Skibiki-pap-pap, and a pu-pu-pudrrrr-boom Skya,</p>
               <p>du-du-ku-ku-dun-dun Poom, poom.</p>
               <br />
-              <p className="text-gray-500">Perspiration ting, Lynx effect ✨</p>
+              <p className="dark:text-gray-400 text-gray-600">
+                Perspiration ting, Lynx effect ✨
+              </p>
             </div>
           </div>
           <div className="flex items-center justify-center w-full md:w-auto">
