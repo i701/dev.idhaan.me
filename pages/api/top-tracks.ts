@@ -26,15 +26,16 @@ export default async function handler(
 ) {
   const response = await getTopTracks()
   const { items } = await response.json()
-
   const tracks = items.slice(0, 5).map((track: Artist) => ({
     artist: track.artists[0].name,
     songUrl: track.external_urls.spotify,
     title: track.name,
   }))
-  for (const track of tracks) {
-    console.log(track)
-  }
+
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=86400, stale-while-revalidate=43200"
+  )
 
   res.status(200).json({ tracks })
 }
