@@ -39,11 +39,13 @@ const Listen = () => {
         <title>Listen with me</title>
       </Head>
       <div className={`space-y-4`}>
-        <h1 className="text-4xl font-bold text-orange-600">
+        <h1 className="text-2xl md:text-4xl font-bold text-orange-600">
           <span className="accent-line ">Listen </span>
           with me
         </h1>
-        <p>Listen along with me 🎶</p>
+        <p className="dark:text-gray-400 md:text-base text-sm">
+          Listen along with me 🎶
+        </p>
         {song && (
           <NowplayingCard
             album={song.album}
@@ -55,11 +57,11 @@ const Listen = () => {
           />
         )}
         <br />
-        <h1 className="font-bold border-b-2 border-orange-500 pb-2 text-xl">
+        <h1 className="font-bold border-b-2 border-orange-500 pb-2 text-xl dark:text-white">
           My Top 5 Tracks
         </h1>
         {tracks ? (
-          <p className="text-sm md:text-base">
+          <p className="text-sm md:text-base dark:text-gray-400">
             <span className="font-bold">{tracks[0].title}</span>[by{" "}
             {tracks[0].artist}] is the most streamed song of mine as of now.
             Here's my top tracks on Spotify.
