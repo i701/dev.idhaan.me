@@ -71,9 +71,6 @@ const About = () => {
         </h1>
         <div className="rounded dark:border-orange-800 hover:border-orange-500 transition duration-150 border-2 w-full flex flex-col space-y-4 pt-4 md:pb-6 items-center justify-center">
           <h3 className="font-bold md:text-2xl ">Hello, My Name is Aidhaan.</h3>
-          <p className="text-xs md:text-base">
-            My friends call me idhaan though lmao 💀
-          </p>
           <Image
             src="/me.jpg"
             alt="Profile photo of me"
