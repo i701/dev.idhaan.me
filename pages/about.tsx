@@ -72,16 +72,16 @@ const About = () => {
         <div className="rounded dark:border-orange-800 hover:border-orange-500 transition duration-150 border-2 w-full flex flex-col space-y-4 pt-4 md:pb-6 items-center justify-center">
           <h3 className="font-bold md:text-2xl ">Hello, My Name is Aidhaan.</h3>
           <Image
-            src="/me.jpg"
+            src="/avatar.jpg"
             alt="Profile photo of me"
             blurDataURL="/me.jpg"
             placeholder="blur"
             width={640}
             height={640}
-            className="rounded-full h-40 w-40 md:w-48 md:h-48 ring-4 ring-orange-500"
+            className="rounded-full h-40 w-40 md:w-48 md:h-48 ring-2 ring-orange-500"
           />
           <div className="md:text-base text-orange-500 bg-persian-orange/20 rounded-sm p-2 max-w-sm text-sm">
-            <p className="dark:text-gray-400 text-gray-600">
+            <p className="dark:text-orange-500 text-gray-600">
               everyday i am convinced to start over a whole perfectly working
               project in a new javascript framework 🤡
             </p>
