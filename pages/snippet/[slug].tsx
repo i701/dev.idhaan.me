@@ -1,10 +1,5 @@
-import {
-  getSnippetFromSlug,
-  getSnippetSlugs,
-  SnippetMeta,
-} from "@/src/snippetApi"
-import type { GetStaticProps, GetStaticPaths } from "next"
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote"
+import type { GetStaticPaths, GetStaticPropsContext } from "next"
+import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
@@ -12,11 +7,8 @@ import rehypeHighlight from "rehype-highlight"
 import MDXComponents from "../components/MDXComponents"
 import "highlight.js/styles/atom-one-dark.css"
 import Head from "next/head"
-
-interface MDXPost {
-  source: MDXRemoteSerializeResult<Record<string, unknown>>
-  meta: SnippetMeta
-}
+import MDXContent from "@/lib/MDXContent"
+import { MDXPost } from "@/lib/types"
 
 export default function SnippetPage({ snippet }: { snippet: MDXPost }) {
   return (
@@ -40,9 +32,19 @@ export default function SnippetPage({ snippet }: { snippet: MDXPost }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type StaticProps = GetStaticPropsContext & {
+  params: {
+    slug: string
+  }
+}
+
+export async function getStaticProps({ params }: StaticProps) {
   const { slug } = params as { slug: string }
-  const { content, meta } = getSnippetFromSlug(slug)
+  // const { content, meta } = getSnippetFromSlug(slug)
+  const { content, meta } = await new MDXContent("snippets").getPostFromSlug(
+    slug
+  )
+
   const mdxSource = await serialize(content, {
     mdxOptions: {
       rehypePlugins: [
@@ -57,7 +59,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getSnippetSlugs().map((slug) => ({ params: { slug } }))
+  const paths = new MDXContent("snippets")
+    .getSlugs()
+    .map((slug) => ({ params: { slug } }))
 
   return {
     paths,

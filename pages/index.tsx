@@ -1,4 +1,5 @@
-import { getAllPosts, PostMeta } from "@/src/postApi"
+import MDXContent from "@/lib/MDXContent"
+import { PostMeta } from "@/lib/types"
 import Head from "next/head"
 import { KeyboardEvent, useEffect, useRef, useState } from "react"
 import Postcard from "./components/Postcard"
@@ -65,9 +66,10 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  const posts = await new MDXContent("posts")
+    .getAllPosts()
     .slice(0, 9)
-    .map((post) => post.meta)
+    .map((post) => post?.meta)
   console.log(posts)
   return { props: { posts } }
 }

@@ -1,8 +1,9 @@
-import { getAllSnippets, SnippetMeta } from "@/src/snippetApi"
+import MDXContent from "@/lib/MDXContent"
+import { PostMeta } from "@/lib/types"
 import Head from "next/head"
 import Snippetcard from "./components/Snippetcard"
 
-const Snippets = ({ snippets }: { snippets: SnippetMeta[] }) => {
+const Snippets = ({ snippets }: { snippets: PostMeta[] }) => {
   return (
     <>
       <Head>
@@ -24,9 +25,10 @@ const Snippets = ({ snippets }: { snippets: SnippetMeta[] }) => {
 }
 
 export async function getStaticProps() {
-  const snippets = getAllSnippets()
+  const snippets = new MDXContent("snippets")
+    .getAllPosts()
     .slice(0, 9)
-    .map((post) => post.meta)
+    .map((post) => post?.meta)
   console.log(snippets)
   return { props: { snippets } }
 }
