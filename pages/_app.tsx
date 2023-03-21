@@ -22,7 +22,6 @@ export default function App({ Component, pageProps }: AppProps) {
   Router.events.on("routeChangeComplete", (url) => {
     setPageLoading(false)
   })
-  console.log(pageLoading)
   return (
     <>
       <ErrorBoundary>
