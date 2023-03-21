@@ -37,7 +37,16 @@ const Listen = () => {
   } = useSWR<INowPlayingItem>("/api/now-playing")
 
   const { data: songs } = useSWR<IRecentyPlayedItems>("/api/recently-played")
-  const tracks = songs?.tracks
+  const tracks = songs?.tracks || []
+
+  for (let i = 0; i < tracks.length; i++) {
+    for (let j = i + 1; j < tracks.length; j++) {
+      if (JSON.stringify(tracks[i]) === JSON.stringify(tracks[j])) {
+        tracks?.splice(j, 1)
+        j--
+      }
+    }
+  }
 
   if (error) return <div>Oh balls. What did my server do?. Try Again?</div>
   if (isLoading) return <Loading />
@@ -67,11 +76,11 @@ const Listen = () => {
         )}
         <br />
         <h1 className="font-bold border-b-2 border-orange-500 pb-2 text-xl dark:text-white">
-          My Top 5 Recently Played Tracks
+          My Recently Played Tracks
         </h1>
         {tracks ? (
           <p className="text-sm md:text-base dark:text-gray-400">
-            Here are my top recently streamed tracks on Spotify.
+            Here are my recently streamed tracks on Spotify.
           </p>
         ) : (
           ""
