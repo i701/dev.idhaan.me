@@ -79,7 +79,7 @@ const About = () => {
     const intervalId = setInterval(() => {
       const randomFact = getRandomFact()
       setFact(randomFact)
-    }, 2000)
+    }, 4000)
     return () => clearInterval(intervalId)
   }, [])
 
@@ -93,10 +93,12 @@ const About = () => {
           <span className="accent-line">About</span>
         </h1>
         <div className="rounded dark:border-orange-800 hover:border-orange-500 transition duration-150 border-2 w-full flex flex-col space-y-4 pt-4 md:pb-6 items-center justify-center">
-          <h3 className="font-bold md:text-2xl ">Hello, My Name is Aidhaan.</h3>
-          <div className="flex items-center gap-2">
-            <p className="text-xl">I am</p>
-            <span className="text-xl font-bold text-orange-600">{fact}</span>
+          <h3 className="font-bold text-xl md:text-2xl ">
+            Hello, My Name is Aidhaan
+          </h3>
+          <div className="text-base md:text-xl flex items-center gap-2">
+            <p className="">I am</p>
+            <span className="font-bold text-orange-600">{fact}</span>
           </div>
 
           <Image
