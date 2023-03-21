@@ -1,37 +1,46 @@
 import useSWR from "swr"
 import NowplayingCard from "./components/NowplayingCard"
-import { Suspense } from "react"
 import Trackcard from "./components/Trackcard"
 import Head from "next/head"
+import Loading from "./components/Loading"
 
-type SongProps = {
+interface IRecentyPlayedItems {
+  tracks: Track[]
+}
+interface Track {
+  artist: string
+  songUrl: string
+  title: string
+  albumUrl: AlbumURL
+}
+
+interface AlbumURL {
+  height: number
+  url: string
+  width: number
+}
+
+interface INowPlayingItem {
   album: string
   albumImageUrl: string
   artist: string
-  title: string
-  songUrl: string
   isPlaying: boolean
-}
-
-type TrackType = {
-  index?: number
   songUrl: string
-  artist: string
   title: string
-}
-
-type TracksType = {
-  tracks: TrackType[]
 }
 
 const Listen = () => {
-  const { data: song, error, isLoading } = useSWR<SongProps>("/api/now-playing")
+  const {
+    data: song,
+    error,
+    isLoading,
+  } = useSWR<INowPlayingItem>("/api/now-playing")
 
-  const { data: songs } = useSWR<TracksType>("/api/top-tracks")
+  const { data: songs } = useSWR<IRecentyPlayedItems>("/api/recently-played")
   const tracks = songs?.tracks
 
-  if (error) return <div>Oh balls. My server fucked up lmao. Try again?</div>
-  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Oh balls. What did my server do?. Try Again?</div>
+  if (isLoading) return <Loading />
 
   return (
     <>
@@ -58,25 +67,24 @@ const Listen = () => {
         )}
         <br />
         <h1 className="font-bold border-b-2 border-orange-500 pb-2 text-xl dark:text-white">
-          My Top 5 Tracks
+          My Top 5 Recently Played Tracks
         </h1>
         {tracks ? (
           <p className="text-sm md:text-base dark:text-gray-400">
-            <span className="font-bold">{tracks[0].title}</span>[by{" "}
-            {tracks[0].artist}] is the most streamed song of mine as of now.
-            Here's my top tracks on Spotify.
+            Here are my top recently streamed tracks on Spotify.
           </p>
         ) : (
           ""
         )}
-        <div className="gap-1 flex flex-col">
-          {tracks?.map((s: TrackType, index: number) => (
+        <div className="gap-2 flex flex-col">
+          {tracks?.map((s: Track, index: number) => (
             <Trackcard
               key={s.title}
               artist={s.artist}
               title={s.title}
               url={s.songUrl}
               index={index + 1}
+              albumArt={s.albumUrl.url}
             />
           ))}
         </div>
