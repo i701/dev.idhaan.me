@@ -70,6 +70,5 @@ export async function getStaticProps() {
     .getAllPosts()
     .slice(0, 9)
     .map((post) => post?.meta)
-  console.log(posts)
   return { props: { posts } }
 }
