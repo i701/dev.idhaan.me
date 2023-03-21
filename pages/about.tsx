@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 import TimelineEvent from "./components/TimelineEvent"
 import { TimelineProps } from "./components/TimelineEvent"
 
@@ -60,6 +61,28 @@ let _educations: TimelineProps[] = [
 const educations = _educations.reverse()
 
 const About = () => {
+  const factArray = [
+    "a Web Developer 🖥️",
+    "a Side Defender (Soccer) ⚽",
+    "an Admin Officer 👨🏽‍💼",
+    "a Telegram Addict ✨",
+    "a Python Enthusiast 🐍",
+  ]
+
+  function getRandomFact() {
+    return factArray[Math.floor(Math.random() * factArray.length)]
+  }
+
+  const [fact, setFact] = useState("a Geek 🤓")
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomFact = getRandomFact()
+      setFact(randomFact)
+    }, 2000)
+    return () => clearInterval(intervalId)
+  }, [])
+
   return (
     <>
       <Head>
@@ -71,10 +94,15 @@ const About = () => {
         </h1>
         <div className="rounded dark:border-orange-800 hover:border-orange-500 transition duration-150 border-2 w-full flex flex-col space-y-4 pt-4 md:pb-6 items-center justify-center">
           <h3 className="font-bold md:text-2xl ">Hello, My Name is Aidhaan.</h3>
+          <div className="flex items-center gap-2">
+            <p className="text-xl">I am</p>
+            <span className="text-xl font-bold text-orange-600">{fact}</span>
+          </div>
+
           <Image
             src="/avatar.jpg"
             alt="Profile photo of me"
-            blurDataURL="/me.jpg"
+            blurDataURL="/avatar.jpg"
             placeholder="blur"
             width={640}
             height={640}
