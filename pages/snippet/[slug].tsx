@@ -15,6 +15,10 @@ export default function SnippetPage({ snippet }: { snippet: MDXPost }) {
     <>
       <Head>
         <title>{snippet.meta.title}</title>
+        <meta
+          property="og:image"
+          content={`https://dev.idhaan.me/api/og?title=${snippet.meta.title}`}
+        />
       </Head>
       <h1 className="text-2xl md:text-4xl font-bold text-gray-500 my-4">
         {snippet.meta.title}
