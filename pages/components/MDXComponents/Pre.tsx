@@ -1,7 +1,7 @@
 import { useState, useRef, ReactNode } from "react"
 import CodeTitle from "./CodeTitle"
 
-const Pre = ({ children }: { children?: ReactNode }) => {
+export default function Pre({ children }: { children?: ReactNode }) {
   const textInput = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -81,5 +81,3 @@ const Pre = ({ children }: { children?: ReactNode }) => {
     </div>
   )
 }
-
-export default Pre
