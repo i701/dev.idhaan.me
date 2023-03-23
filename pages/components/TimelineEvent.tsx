@@ -1,8 +1,8 @@
 import {
   CalendarIcon,
   AcademicCapIcon,
-  MapPinIcon,
   BuildingOfficeIcon,
+  LinkIcon,
 } from "@heroicons/react/24/solid"
 
 export interface TimelineProps {
@@ -41,16 +41,16 @@ const TimelineEvent = ({
         </div>
         <div className=" flex gap-2 items-center">
           <BuildingOfficeIcon className="aspect-square text-gray-400 linedot bg-white dark:text-gray-600 dark:bg-black" />
-          <h3 className="md:text-xl text-sm text-gray-600">
+          <h3 className="md:text-base text-sm text-gray-600">
             {educatedPlaceName}
           </h3>
         </div>
         <div className=" flex gap-2 items-center">
-          <MapPinIcon className="aspect-square text-gray-400 linedot bg-white dark:text-gray-600 dark:bg-black" />
+          <LinkIcon className="aspect-square text-gray-400 linedot bg-white dark:text-gray-600 dark:bg-black" />
           <a
             target={"_blank"}
             href={educatedPlaceLink}
-            className="md:text-xl text-xs text-gray-600 hover:text-orange-600"
+            className="md:text-base focus:outline-none focus:text-orange-600 focus:underline text-xs md:text-gray-600 text-orange-600 hover:text-orange-600"
           >
             {location}
           </a>
