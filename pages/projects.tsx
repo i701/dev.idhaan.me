@@ -1,5 +1,5 @@
 import Head from "next/head"
-import ProjectCard from "./components/ProjectCard"
+import ProjectCard from "../components/ProjectCard"
 
 const Projects = () => {
   return (

@@ -2,9 +2,9 @@ import MDXContent from "@/lib/MDXContent"
 import { PostMeta } from "@/lib/types"
 import Head from "next/head"
 import { KeyboardEvent, useEffect, useRef, useState } from "react"
-import Postcard from "./components/Postcard"
+import Postcard from "../components/Postcard"
 
-export default function Home({ posts }: { posts: PostMeta[] }) {
+const Home = ({ posts }: { posts: PostMeta[] }) => {
   const [searchValue, setSearchValue] = useState("")
   const [filteredPosts, setFilteredPosts] = useState([...posts])
   const searchRef = useRef<HTMLInputElement>(null!)
@@ -73,3 +73,5 @@ export async function getStaticProps() {
     .map((post) => post?.meta)
   return { props: { posts } }
 }
+
+export default Home

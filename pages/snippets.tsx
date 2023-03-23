@@ -1,7 +1,7 @@
 import MDXContent from "@/lib/MDXContent"
 import { PostMeta } from "@/lib/types"
 import Head from "next/head"
-import Snippetcard from "./components/Snippetcard"
+import Snippetcard from "../components/Snippetcard"
 
 const Snippets = ({ snippets }: { snippets: PostMeta[] }) => {
   return (

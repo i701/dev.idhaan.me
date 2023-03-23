@@ -1,15 +1,15 @@
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
-import Navbar from "./components/Navbar"
-import NProgress from "./components/Progress"
+import Navbar from "../components/Navbar"
+import NProgress from "../components/Progress"
 import { ThemeProvider } from "next-themes"
 
 import { Space_Mono } from "next/font/google"
 import { SWRConfig } from "swr"
-import ErrorBoundary from "./components/ErrorBoundary"
+import ErrorBoundary from "../components/ErrorBoundary"
 import { useState } from "react"
 import { Router } from "next/router"
-import Loading from "./components/Loading"
+import Loading from "../components/Loading"
 
 const space = Space_Mono({ weight: "400", subsets: [] })
 

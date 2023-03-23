@@ -1,8 +1,8 @@
 import Head from "next/head"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import TimelineEvent from "./components/TimelineEvent"
-import { TimelineProps } from "./components/TimelineEvent"
+import TimelineEvent from "../components/TimelineEvent"
+import { TimelineProps } from "../components/TimelineEvent"
 
 let _educations: TimelineProps[] = [
   {

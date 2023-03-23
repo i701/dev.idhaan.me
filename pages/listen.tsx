@@ -1,8 +1,8 @@
 import useSWR from "swr"
-import NowplayingCard from "./components/NowplayingCard"
-import Trackcard from "./components/Trackcard"
+import NowplayingCard from "../components/NowplayingCard"
+import Trackcard from "../components/Trackcard"
 import Head from "next/head"
-import Loading from "./components/Loading"
+import Loading from "../components/Loading"
 
 interface IRecentyPlayedItems {
   tracks: Track[]

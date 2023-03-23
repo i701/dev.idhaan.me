@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import MemeBoard from "./components/MemeBoard"
+import MemeBoard from "../components/MemeBoard"
 
 const Memes = () => {
   return (
