@@ -9,7 +9,7 @@ import rehypeHighlight from "rehype-highlight"
 import "highlight.js/styles/atom-one-dark.css"
 import { MDXPost } from "@/lib/types"
 import MDXContent from "@/lib/MDXContent"
-import { MDXComponents } from "../components/MDXComponents"
+import { MDXComponents } from "../../lib/MDXComponents"
 
 const PostPage = ({ post }: { post: MDXPost }) => {
   return (

@@ -4,11 +4,11 @@ import { serialize } from "next-mdx-remote/serialize"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeHighlight from "rehype-highlight"
-import { MDXComponents } from "../components/MDXComponents"
 import "highlight.js/styles/atom-one-dark.css"
 import Head from "next/head"
 import MDXContent from "@/lib/MDXContent"
 import { MDXPost } from "@/lib/types"
+import { MDXComponents } from "../../lib/MDXComponents"
 
 export default function SnippetPage({ snippet }: { snippet: MDXPost }) {
   return (

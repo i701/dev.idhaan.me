@@ -3,7 +3,7 @@ import { PostMeta } from "@/lib/types"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import { useEffect, useRef, useState } from "react"
-import Postcard from "../components/Postcard"
+import Postcard from "../../components/Postcard"
 
 // TODO: Update this
 export default function TagPage({
