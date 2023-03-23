@@ -11,7 +11,7 @@ import { useState } from "react"
 import { Router } from "next/router"
 import Loading from "../components/Loading"
 
-const space = Space_Mono({ weight: "400", subsets: [] })
+const space = Space_Mono({ weight: ["400", "700"], subsets: ["latin"] })
 
 export default function App({ Component, pageProps }: AppProps) {
   const [pageLoading, setPageLoading] = useState<boolean>(false)
