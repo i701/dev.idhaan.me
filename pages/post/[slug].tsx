@@ -7,9 +7,9 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeHighlight from "rehype-highlight"
 // import YouTube from "@/src/components/youTube";
 import "highlight.js/styles/atom-one-dark.css"
-import MDXComponents from "../components/MDXComponents"
 import { MDXPost } from "@/lib/types"
 import MDXContent from "@/lib/MDXContent"
+import { MDXComponents } from "../components/MDXComponents"
 
 const PostPage = ({ post }: { post: MDXPost }) => {
   return (

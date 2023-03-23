@@ -1,5 +1,4 @@
 import { useState, useRef, ReactNode } from "react"
-import CodeTitle from "./CodeTitle"
 
 export default function Pre({ children }: { children?: ReactNode }) {
   const textInput = useRef<HTMLDivElement>(null)
