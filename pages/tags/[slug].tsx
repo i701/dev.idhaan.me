@@ -35,10 +35,13 @@ export default function TagPage({
 
     return () => document.removeEventListener("keydown", handleAutoSearch)
   }, [])
+  function capitalizeFirstLetter(tag: string) {
+    return tag.charAt(0).toUpperCase() + tag.slice(1)
+  }
   return (
     <>
       <Head>
-        <title>Tag: {slug}</title>
+        <title># {capitalizeFirstLetter(slug)}</title>
       </Head>
       <div className="space-y-4">
         <div className="flex justify-between items-center flex-wrap gap-2">
