@@ -4,8 +4,6 @@ import { BarsArrowDownIcon } from "@heroicons/react/24/solid"
 import { Menu } from "@headlessui/react"
 import { motion } from "framer-motion"
 import { Space_Mono } from "next/font/google"
-import { DarkModeSwitch } from "react-toggle-dark-mode"
-import { useTheme } from "next-themes"
 import ThemeButton from "./ThemeButton"
 import { useEffect, useState } from "react"
 
@@ -28,16 +26,61 @@ const links = [
     path: "/snippets",
   },
   {
-    name: "Education",
-    path: "/education",
+    name: "About",
+    path: "/about",
   },
 ]
 
 const Navbar = () => {
+  const binaryArray: string[] = [
+    "01110110",
+    "01110010",
+    "01100101",
+    "00100000",
+    "01001110",
+    "01110110",
+    "01100101",
+    "01101001",
+    "01110101",
+    "00100000",
+    "01100111",
+    "01101111",
+    "01111001",
+    "01100101",
+    "01110000",
+    "00100000",
+    "01110101",
+    "01110010",
+    "01110010",
+    "01101110",
+    "00100000",
+    "01101111",
+    "01100001",
+    "01110011",
+    "00101110",
+    "01100101",
+    "00100000",
+    "01100100",
+    "01101101",
+    "00100000",
+  ]
+
+  function getRandomBinary() {
+    return binaryArray[Math.floor(Math.random() * binaryArray.length)]
+  }
+
+  const [headingText, setHeadingText] = useState("Welcome 😎")
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomBinary = getRandomBinary()
+      setHeadingText(randomBinary)
+    }, 2000)
+    return () => clearInterval(intervalId)
+  }, [])
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true))
 
-  const { theme, setTheme } = useTheme()
   const router = useRouter()
   return (
     <nav
@@ -50,7 +93,7 @@ const Navbar = () => {
            focus:outline-none focus:border-orange-500 dark:focus:border-orange-500 dark:border-gray-700"
           href="/"
         >
-          {"01101001"}
+          {headingText}
         </Link>
         <div className="flex items-center gap-2">
           <ul
@@ -72,7 +115,6 @@ const Navbar = () => {
                 <p>{link.name}</p>
               </Link>
             ))}
-            {/* {mounted && <ThemeButton />} */}
           </ul>
           {mounted && <ThemeButton />}
 
