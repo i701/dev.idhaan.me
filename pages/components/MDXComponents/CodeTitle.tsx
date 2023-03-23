@@ -67,7 +67,7 @@ export default function CodeTitle({ title, lang }: Props) {
   }
   return (
     <div className="relative !z-10">
-      <div className="bg-white text-darkSecondary dark:bg-darkSecondary dark:text-gray-200  rounded-tl-md rounded-tr-md p-3  flex items-center justify-between font-mono !mt-4 overflow-x-scroll xs:overflow-auto border border-black   dark:border-gray-200/60  ">
+      <div className="bg-white text-darkSecondary dark:bg-darkSecondary dark:text-gray-200 rounded-t border-t border-l border-r p-3 dark:border-gray-800 flex items-center justify-between font-mono dark:bg-gray-900 dark:border-gray-200/60  ">
         <div className="flex items-center gap-2">
           <Icon className="flex items-center w-4 h-4" />
           <p className="!my-0 font-[500] text-sm">{title || lang}</p>

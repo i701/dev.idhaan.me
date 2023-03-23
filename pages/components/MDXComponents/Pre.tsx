@@ -1,4 +1,5 @@
 import { useState, useRef, ReactNode } from "react"
+import CodeTitle from "./CodeTitle"
 
 const Pre = ({ children }: { children?: ReactNode }) => {
   const textInput = useRef<HTMLDivElement>(null)
@@ -24,7 +25,7 @@ const Pre = ({ children }: { children?: ReactNode }) => {
 
   return (
     <div
-      className="relative bg-gray-50 border dark:border-none dark:bg-gray-900 dark:ring-2 rounded"
+      className="relative bg-gray-50 border dark:border-gray-800 dark:bg-gray-900 dark:border rounded-b"
       ref={textInput}
       onMouseEnter={onEnter}
       onMouseLeave={onExit}
@@ -74,7 +75,9 @@ const Pre = ({ children }: { children?: ReactNode }) => {
         </button>
       )}
 
-      <pre className="overflow-auto !rounded-md !w-full">{children}</pre>
+      <pre className="overflow-auto text-sm md:text-base !rounded-md !w-full !p-4 md:!p-6">
+        {children}
+      </pre>
     </div>
   )
 }
