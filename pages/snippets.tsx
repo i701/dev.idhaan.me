@@ -8,6 +8,10 @@ const Snippets = ({ snippets }: { snippets: PostMeta[] }) => {
     <>
       <Head>
         <title>Snippets</title>
+        <meta
+          property="og:image"
+          content={`https://dev.idhaan.me/api/og?title=Snippets`}
+        />
       </Head>
       <div className={`space-y-4`}>
         <h1 className="text-2xl md:text-4xl font-bold text-orange-600">
@@ -29,7 +33,6 @@ export async function getStaticProps() {
     .getAllPosts()
     .slice(0, 9)
     .map((post) => post?.meta)
-  console.log(snippets)
   return { props: { snippets } }
 }
 

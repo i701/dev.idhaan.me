@@ -55,6 +55,10 @@ const Listen = () => {
     <>
       <Head>
         <title>Listen with me</title>
+        <meta
+          property="og:image"
+          content={`https://dev.idhaan.me/api/og?title=Listen+with+me`}
+        />
       </Head>
       <div className={`space-y-4`}>
         <h1 className="text-2xl md:text-4xl font-bold text-orange-600">

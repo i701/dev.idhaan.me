@@ -6,6 +6,10 @@ const Projects = () => {
     <>
       <Head>
         <title>Projects</title>
+        <meta
+          property="og:image"
+          content={`https://dev.idhaan.me/api/og?title=Projects`}
+        />
       </Head>
       <div className={`space-y-4`}>
         {" "}

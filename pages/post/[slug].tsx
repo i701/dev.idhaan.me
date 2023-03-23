@@ -16,6 +16,10 @@ const PostPage = ({ post }: { post: MDXPost }) => {
     <>
       <Head>
         <title>{post.meta.title}</title>
+        <meta
+          property="og:image"
+          content={`https://dev.idhaan.me/api/og?title=${post.meta.title}`}
+        />
       </Head>
       <h1 className="text-2xl md:text-4xl font-bold text-gray-500 my-4">
         {post.meta.title}
