@@ -77,9 +77,9 @@ const Navbar = () => {
       setHeadingText(randomBinary)
     }, 2000)
     return () => clearInterval(intervalId)
-  }, [])
+  })
   const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true))
+  useEffect(() => setMounted(true), [])
 
   const router = useRouter()
   return (

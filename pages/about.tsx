@@ -81,7 +81,7 @@ const About = () => {
       setFact(randomFact)
     }, 4000)
     return () => clearInterval(intervalId)
-  }, [])
+  })
 
   return (
     <>
