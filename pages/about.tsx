@@ -63,7 +63,7 @@ const educations = _educations.reverse()
 const About = () => {
   const factArray = [
     "a Web Developer 🖥️",
-    "a Side Defender (Soccer) ⚽",
+    "a Defender (Football) ⚽",
     "an Admin Officer 👨🏽‍💼",
     "a Telegram Addict ✨",
     "a Python Enthusiast 🐍",
