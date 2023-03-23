@@ -1,26 +1,29 @@
-import React from "react"
-import useSound from "use-sound"
-import { PlayIcon, CodeBracketIcon } from "@heroicons/react/24/solid"
+import { ReactNode } from "react"
 
-const defaultName = "Meme Sound"
-type MemesoundProps = {
-  name?: string
+interface MemeSoundProps {
+  onClick: () => void
+  onMouseLeave: () => void
+  children: ReactNode
 }
 
-const Memesound = (props: MemesoundProps) => {
-  const { name = defaultName } = props
-  const [playClick, { stop }] = useSound("/boom.mp3", { volume: 0.4 })
+const Memesound = ({ onClick, onMouseLeave, children }: MemeSoundProps) => {
   return (
-    <div className="h-24 border">
-      <button
-        onClick={() => playClick()}
-        onMouseLeave={() => stop()}
-        className="border focus:bg-orange-200 focus:stripes stripes-reverse stripes-opacity-10 h-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 w-full rounded p-2 hover:bg-gray-200 flex gap-2 justify-center items-center"
-      >
-        {/* <PlayIcon className="w-8 h-8 text-orange-400" /> */}
-        <p className="text-md font-bold">{name}</p>
-      </button>
-    </div>
+    <button
+      onClick={onClick}
+      onMouseLeave={onMouseLeave}
+      className="dark:text-gray-200
+      focus:bg-orange-200
+      dark:focus:bg-orange-800/50
+        focus:stripes stripes-opacity-10
+        h-16 bg-orange-400/20 w-full rounded
+        p-2 hover:bg-orange-800/20
+        flex gap-2 justify-center items-center
+        focus:ring-2 focus:ring-orange-600/40
+        focus:outline-none dark:focus:outline-none
+        dark:focus:ring-2 dark:ring-orange-800"
+    >
+      {children}
+    </button>
   )
 }
 
