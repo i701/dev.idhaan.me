@@ -74,7 +74,7 @@ export default function Pre({ children }: { children?: ReactNode }) {
         </button>
       )}
 
-      <pre className="text-sm md:text-base !rounded-md !w-full !p-4 md:!p-6 overflow-x-scroll">
+      <pre className="text-sm md:text-base !rounded-md !w-full !p-4 md:!p-6 overflow-auto">
         {children}
       </pre>
     </div>

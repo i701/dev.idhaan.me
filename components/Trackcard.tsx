@@ -14,10 +14,10 @@ const Trackcard = ({ title, artist, url, index, albumArt }: CardProps) => {
     <a
       target={"_blank"}
       href={url}
-      className="p-2 rounded space-x-2 items-center hover:cursor-pointer hover:stripes stripes-opacity-5
-      border-[1px] flex gap-2 overflow-hidden bg-white
-      dark:bg-smoky-black/80 dark:border-orange-900/50
-      w-full dark:hover:border-orange-800 hover:border-orange-400 transition duration-150
+      className="p-2 hover:cursor-pointer hover:stripes stripes-opacity-5 dark:stripes-opacity-95
+      border-2 rounded items-center flex gap-2 overflow-hidden
+      dark:bg-smoky-black/80 bg-white w-full dark:border-orange-900/50 hover:border-orange-400
+      dark:hover:border-orange-800 transition duration-150
       focus:outline-none dark:focus:border-2 dark:focus:border-orange-800 focus:border-2 focus:border-orange-400
       "
     >
@@ -31,7 +31,7 @@ const Trackcard = ({ title, artist, url, index, albumArt }: CardProps) => {
         height="300"
         alt={title}
       />
-      <div className="space-y-2 py-2">
+      <div className="space-y-2">
         <h1 className="text-sm md:text-lg font-bold dark:text-white ">
           {title}
         </h1>
