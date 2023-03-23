@@ -66,7 +66,7 @@ export default function Home({ posts }: { posts: PostMeta[] }) {
 }
 
 export async function getStaticProps() {
-  const posts = await new MDXContent("posts")
+  const posts = new MDXContent("posts")
     .getAllPosts()
     .slice(0, 9)
     .map((post) => post?.meta)
