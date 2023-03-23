@@ -10,7 +10,7 @@ export default async function handler(
   const response = await getRecentTracks()
   const { items } = await response.json()
 
-  const tracks = items.slice(0, 5).map((t: Item) => ({
+  const tracks = items.slice(0, 6).map((t: Item) => ({
     artist: t.track.artists[0].name,
     songUrl: t.track.external_urls.spotify,
     title: t.track.name,

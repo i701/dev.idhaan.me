@@ -1,0 +1,20 @@
+---
+title: Format date in Javascript
+date: 2023-01-09
+excerpt: Little snippet to format dates in Javascript in a presentable way. 
+---
+
+<CodeTitle title="Javascript" lang="js" />
+```js
+today = new Date()
+
+// to get a nice formatted date like 12 March, 2023 you can do the following
+formattedDate = today.toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+})
+
+console.log(formattedDate)
+```
+
