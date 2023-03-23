@@ -14,7 +14,7 @@ const Trackcard = ({ title, artist, url, index, albumArt }: CardProps) => {
     <a
       target={"_blank"}
       href={url}
-      className="px-2 rounded space-x-2 items-center hover:cursor-pointer hover:stripes stripes-opacity-5
+      className="p-2 rounded space-x-2 items-center hover:cursor-pointer hover:stripes stripes-opacity-5
       border-[1px] flex gap-2 overflow-hidden bg-white
       dark:bg-smoky-black/80 dark:border-orange-900/50
       w-full dark:hover:border-orange-800 hover:border-orange-400 transition duration-150
