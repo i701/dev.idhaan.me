@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ThemeProvider attribute="class">
           <Navbar />
           <main
-            className={`${space.className} max-w-5xl h-screen mx-auto py-8 px-4 text-gray-600 dark:text-gray-400 antialiased pt-20`}
+            className={`${space.className} max-w-5xl min-h-screen mx-auto pb-12 px-4 text-gray-600 dark:text-gray-400 antialiased pt-20`}
           >
             <div className="fixed -z-10 inset-0 bg-[url(/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
             <SWRConfig
