@@ -92,3 +92,9 @@ export interface Image {
 export interface ExternalIDS {
   isrc: string
 }
+
+export interface IDua {
+  dua: string
+  pronounciation: string
+  meaning: string
+}
