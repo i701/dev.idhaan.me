@@ -7,7 +7,10 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl
-  const postTitle = searchParams.get("title")
+  const hasTitle = searchParams.has("title")
+  const title = hasTitle
+    ? searchParams.get("title")?.slice(0, 100)
+    : "Aidhaan's Blog"
 
   return new ImageResponse(
     (
@@ -35,7 +38,7 @@ export default async function handler(req: NextRequest) {
             whiteSpace: "pre-wrap",
           }}
         >
-          {postTitle}
+          {title}
         </div>
       </div>
     ),
