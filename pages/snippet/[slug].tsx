@@ -8,7 +8,7 @@ import "highlight.js/styles/atom-one-dark.css"
 import Head from "next/head"
 import MDXContent from "@/lib/MDXContent"
 import { MDXPost } from "@/lib/types"
-import MDXComponents from "@/lib/MDXComponents"
+import { MDXComponents } from "@/lib/MDXComponents"
 
 export default function SnippetPage({ snippet }: { snippet: MDXPost }) {
   return (
