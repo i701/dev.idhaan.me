@@ -16,7 +16,7 @@ const Trackcard = ({ title, artist, url, index, albumArt }: CardProps) => {
       href={url}
       className="p-2 hover:cursor-pointer hover:stripes stripes-opacity-5 dark:stripes-opacity-95
       border-2 rounded items-center flex gap-2 overflow-hidden
-      dark:bg-smoky-black/80 bg-white w-full dark:border-orange-900/50 hover:border-orange-400
+      dark:bg-transparent bg-white w-full dark:border-orange-900/50 hover:border-orange-400
       dark:hover:border-orange-800 transition duration-150
       focus:outline-none dark:focus:border-2 dark:focus:border-orange-800 focus:border-2 focus:border-orange-400
       "
@@ -35,7 +35,7 @@ const Trackcard = ({ title, artist, url, index, albumArt }: CardProps) => {
         <h1 className="text-sm md:text-lg font-bold dark:text-white ">
           {title}
         </h1>
-        <p className="text-smoky-black/40 dark:text-neutral-500 md:text-base text-xs">
+        <p className="text-gray-500 dark:text-neutral-500 md:text-base text-xs">
           {artist}
         </p>
       </div>

@@ -12,7 +12,6 @@ module.exports = {
       colors: {
         "persian-orange": "#E8985E",
         "brown-sugar": "#A9714B",
-        "smoky-black": "#141204",
         "drab-brown": "#54442B",
         "drab-green": "#262A10",
       },
