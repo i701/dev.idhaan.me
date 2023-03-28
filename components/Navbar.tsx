@@ -84,7 +84,7 @@ const Navbar = () => {
   const router = useRouter()
   return (
     <nav
-      className={`w-full z-50 shadow dark:border-b-2 dark:border-orange-900/50 bg-white dark:bg-transparent  text-gray-600 dark:text-gray-400 fixed ${space.className}`}
+      className={`w-full z-50 shadow dark:border-b-2 dark:border-orange-900/50 backdrop-blur-xl bg-white/30 dark:bg-black/30  text-gray-600 dark:text-gray-400 fixed ${space.className}`}
     >
       <div className="flex gap-2 px-6 md:px-6 h-16 max-w-5xl mx-auto items-center justify-between ">
         <Link
