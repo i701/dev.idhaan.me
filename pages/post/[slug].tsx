@@ -26,7 +26,6 @@ const PostPage = ({ post }: { post: MDXPost }) => {
           {post.meta.title}
         </h1>
         <p className="text-gray-400 text-sm text-right">
-          //{" "}
           {new Date(post.meta.date).toLocaleDateString("en-US", {
             month: "short",
             day: "2-digit",
