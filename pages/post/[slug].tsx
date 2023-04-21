@@ -21,9 +21,19 @@ const PostPage = ({ post }: { post: MDXPost }) => {
           content={`https://dev.idhaan.me/api/og?title=${post.meta.title}`}
         />
       </Head>
-      <h1 className="text-2xl md:text-6xl font-bold text-gray-500 my-4">
-        {post.meta.title}
-      </h1>
+      <div className="mb-10">
+        <h1 className="text-2xl md:text-6xl font-bold text-gray-500 my-4">
+          {post.meta.title}
+        </h1>
+        <p className="text-gray-400 text-sm text-right">
+          //{" "}
+          {new Date(post.meta.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })}
+        </p>
+      </div>
       <article
         className="prose-sm md:prose-lg
         prose-pre:!m-0
