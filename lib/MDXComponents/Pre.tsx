@@ -1,3 +1,4 @@
+import { Space_Grotesk } from "next/font/google"
 import { useState, useRef, ReactNode } from "react"
 
 export default function Pre({ children }: { children?: ReactNode }) {
@@ -74,7 +75,9 @@ export default function Pre({ children }: { children?: ReactNode }) {
         </button>
       )}
 
-      <pre className="text-sm md:text-base !rounded-md !w-full !p-4 md:!p-6 overflow-auto">
+      <pre
+        className={`text-[1rem] !rounded-md !w-full !p-4 md:!p-6 overflow-auto`}
+      >
         {children}
       </pre>
     </div>

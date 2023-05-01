@@ -39,11 +39,11 @@ const Home = ({ posts }: { posts: PostMeta[] }) => {
       </Head>
       <main className="">
         <div className={`space-y-4`}>
-          <h1 className="text-2xl md:text-4xl font-bold text-orange-600">
-            <span className="accent-line ">Hello </span>
+          <h1 className="text-5xl font-semibold text-orange-600">
+            <span className="accent-line">Hello </span>
           </h1>
           <div className="flex justify-between items-center flex-wrap gap-2">
-            <p className="dark:text-gray-400 md:text-base text-sm">
+            <p className="dark:text-gray-400 md:text-base text-[1rem]">
               Welcome to by blog!
             </p>
 
