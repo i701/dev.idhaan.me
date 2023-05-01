@@ -14,25 +14,24 @@ Function decorators are typically defined using the `@` symbol, followed by the 
 Here is an example of a decorator that adds logging functionality to a function:
 
 <CodeTitle title="Python" lang="py" />
-```python
-def log_function_call(func):
-    def wrapper(*args, **kwargs):
-        print(f"Calling {func.__name__} with args: {args}, kwargs: {kwargs}")
-        return func(*args, **kwargs)
-    return wrapper
+```python def log_function_call(func): def wrapper(*args, **kwargs): print(f"Calling {
+  func.__name__
+} with args: {args}, kwargs: {kwargs}") return func(*args, **kwargs) return wrapper
 
 @log_function_call
 def my_function(x, y):
-    return x + y
+return x + y
 
 my_function(2, 3)
+
 ```
 
 In this example, the `log_function_call` decorator takes a function as input and returns a new function `(wrapper)` that logs the function call and then calls the original function. The `@log_function_call` syntax is used to apply the decorator to the `my_function` function.
 
-When `my_function` is called with arguments `(2, 3)`, the `log_function_call` decorator intercepts the call, logs the function call, and then calls the original `my_function` with the same arguments. The result `(5)` is then returned.
+When `my_function` is called with arguments `(2, 3)`, the `log_function_call` decorator intercepts the call, logs the function call, and then calls the original `my_function` with the same arguments. The result (5) is then returned.
 
 ## Conclusion
 
 Function decorators are a powerful feature of Python that allow you to add functionality to functions without modifying their source code. By defining a decorator function and using the `@` syntax to apply it to a function, you can easily extend or modify the behavior of any function in your code.
 
+```
