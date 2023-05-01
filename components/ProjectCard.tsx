@@ -14,7 +14,9 @@ const ProjectCard = () => {
       "
     >
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold dark:text-white">MHC Donor Manager</h1>
+        <h1 className="text-xl font-bold dark:text-gray-400">
+          MHC Donor Manager
+        </h1>
         <LinkIcon className="h-5 w-5" />
       </div>
       <p className="text-neutral-500">

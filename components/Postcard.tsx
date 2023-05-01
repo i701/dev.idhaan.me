@@ -5,7 +5,7 @@ const Postcard = ({ post }: { post: PostMeta }) => {
   return (
     <div className="transition duration-150 p-4 w-full border rounded bg-white space-y-2 dark:bg-transparent dark:border-orange-800/50">
       <Link
-        className="text-xl font-bold dark:text-white focus:outline-none focus:border-orange-600 focus:border-b-2  hover:border-b-2 hover:border-orange-600"
+        className="text-2xl font-semibold dark:text-gray-400 focus:outline-none focus:border-orange-600 focus:border-b-2  hover:border-b-2 hover:border-orange-600"
         href={`/post/${post.slug}`}
       >
         {post.title}
@@ -17,7 +17,9 @@ const Postcard = ({ post }: { post: PostMeta }) => {
           year: "numeric",
         })}
       </p>
-      <p className="text-neutral-500 md:text-base text-sm">{post.excerpt}</p>
+      <p className="text-neutral-500 md:text-base text-[1rem] leading-relaxed">
+        {post.excerpt}
+      </p>
       <div className="flex flex-wrap gap-2 text-sm text-orange-500">
         {post.tags?.map((tag) => (
           <Link
