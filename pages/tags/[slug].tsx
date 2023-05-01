@@ -45,12 +45,12 @@ export default function TagPage({
       </Head>
       <div className="space-y-4">
         <div className="flex justify-between items-center flex-wrap gap-2">
-          <p className="dark:text-gray-400 md:text-base text-sm">
+          <div className="dark:text-gray-400 md:text-base text-sm">
             <h1 className="text-xl">
               Posts related to{" "}
               <span className="text-orange-500 font-bold">#{slug}</span>
             </h1>
-          </p>
+          </div>
 
           <input
             ref={searchRef}
