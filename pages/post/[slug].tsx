@@ -21,23 +21,40 @@ const PostPage = ({ post }: { post: MDXPost }) => {
           content={`https://dev.idhaan.me/api/og?title=${post.meta.title}`}
         />
       </Head>
-      <div className="mb-10">
-        <h1 className="text-2xl md:text-6xl font-bold text-gray-500 my-4">
-          {post.meta.title}
-        </h1>
-        <p className="text-gray-400 text-sm text-right">
-          {new Date(post.meta.date).toLocaleDateString("en-US", {
-            month: "short",
-            day: "2-digit",
-            year: "numeric",
-          })}
-        </p>
+      <div className="max-w-5xl pt-4 px-4 mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="mt-4 text-4xl text-black dark:text-zinc-400 font-medium sm:text-5xl md:text-6xl md:leading-normal sm:leading-normal">
+            <span>{post.meta.title}</span>
+          </h1>
+          <div className="flex items-center justify-center mt-4">
+            <div className="flex items-center">
+              <div className="ml-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Published on{" "}
+                  {new Date(post.meta.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "2-digit",
+                    year: "numeric",
+                  })}{" "}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <article
         className="prose-sm md:prose-lg
         prose-pre:!m-0
         prose-li:list-disc
-        prose-a:text-orange-600
+        prose-li:leading-loose
+        prose-li:text-[1rem]
+        prose-a:no-underline
+        prose-a:font-bold
+        prose-code:font-mono
+        prose-h1:text-base
+        prose-headings:leading-normal
+        prose-p:leading-loose prose-img:rounded-xl
+        prose-p:text-[1rem]
         "
       >
         <MDXRemote {...post.source} components={MDXComponents} />
