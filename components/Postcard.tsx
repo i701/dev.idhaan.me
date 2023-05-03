@@ -17,7 +17,7 @@ const Postcard = ({ post }: { post: PostMeta }) => {
 
   return (
     <div
-      className="group relative rounded-xl border border-white/10 bg-gray-900 md:px-8 md:py-8 shadow-2xl"
+      className="group relative rounded-xl border dark:border-white/10 dark:bg-gray-900 md:px-8 md:py-8"
       onMouseMove={handleMouseMove}
     >
       <motion.div
