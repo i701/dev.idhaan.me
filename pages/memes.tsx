@@ -18,8 +18,7 @@ const Memes = () => {
         </h1>
         <div className="tracking-10 space-y-2 md:flex-row flex-col items-start flex justify-between w-full">
           <div className="md:max-w-xl text-base md:text-lg tracking-tighter space-y-4">
-            <p className="">Nani!? </p>
-            <div className="md:text-lg text-orange-500 bg-persian-orange/20 rounded-sm p-2 border-l-orange-500 border-l-2">
+            <div className="md:text-lg text-orange-500 bg-persian-orange/20 rounded-sm p-6 border-l-orange-500 border-l-2">
               <p>The ting goes skrrrah,</p>
               <p>pap, pap, ka-ka-ka,</p>
               <p>Skibiki-pap-pap, and a pu-pu-pudrrrr-boom Skya,</p>
@@ -32,7 +31,7 @@ const Memes = () => {
           </div>
           <div className="flex items-center justify-center w-full md:w-auto">
             <Image
-              className="rounded shadow-xl my-4"
+              className="rounded shadow-xl md:my-0 my-4"
               src={"/sus.gif"}
               alt="meme lord dwayne"
               width={200}
