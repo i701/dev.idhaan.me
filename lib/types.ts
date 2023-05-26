@@ -16,6 +16,7 @@ export interface PostMeta {
   title: string
   tags?: string[]
   date: string
+  dv?: false | boolean
 }
 
 export interface TItems {
@@ -95,6 +96,12 @@ export interface ExternalIDS {
 
 export interface IDua {
   dua: string
-  pronounciation: string
+  pronounciation?: string
   meaning: string
+}
+
+export interface IMediaBox {
+  mediaSrc: string
+  caption: string
+  type: "IMAGE" | "VIDEO"
 }
