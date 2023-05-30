@@ -33,6 +33,7 @@ export default class MDXContent {
         title: data.title ?? slug,
         tags: (data.tags || []).sort(),
         date: new Date(data.date).toString() || new Date().toString(),
+        dv: data.dv || false,
       },
     }
   }
@@ -50,6 +51,7 @@ export default class MDXContent {
         title: data.title ?? slug,
         tags: (data.tags || []).sort(),
         date: new Date(data.date).toString() || new Date().toString(),
+        dv: data.dv || false,
       },
     }
   }
