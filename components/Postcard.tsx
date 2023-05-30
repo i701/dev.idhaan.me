@@ -1,9 +1,22 @@
 import { PostMeta } from "@/lib/types"
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import Link from "next/link"
-import { MouseEventHandler } from "react"
+import { MouseEventHandler, useEffect } from "react"
+import localFont from "next/font/local"
+import { useGlobalContext } from "@/context"
+
+const typewriterBold = localFont({
+  src: "../public/fonts/MVTypewriter_reg.ttf",
+})
 
 const Postcard = ({ post }: { post: PostMeta }) => {
+  const { isDhivehi, setIsDhivehi } = useGlobalContext()
+  useEffect(() => {
+    if (post.dv) {
+      setIsDhivehi(true)
+    }
+  }, [post.dv, setIsDhivehi])
+
   let mouseX = useMotionValue(0)
   let mouseY = useMotionValue(0)
 
@@ -32,9 +45,14 @@ const Postcard = ({ post }: { post: PostMeta }) => {
           `,
         }}
       />
-      <div className="relative transition duration-150 p-4 w-full space-y-2 dark:bg-transparent dark:border-orange-800/50">
+      <div
+        className={`${
+          post.dv && "text-right"
+        } relative transition duration-150 p-4 w-full space-y-2 dark:bg-transparent dark:border-orange-800/50`}
+      >
         <Link
-          className="md:text-3xl text-xl leading-relaxed font-bold dark:text-gray-400 focus:outline-none focus:border-orange-600 focus:border-b-2  hover:border-b-2 hover:border-orange-600"
+          className={`${post.dv === true ? typewriterBold.className : ""}
+          text-2xl md:text-2xl text-black font-medium md:leading-loose sm:leading-normal transition duration-150 dark:text-gray-400 focus:outline-none focus:border-orange-600 focus:border-b-2  hover:text-orange-500 dark:hover:text-orange-600`}
           href={`/post/${post.slug}`}
         >
           {post.title}
@@ -49,7 +67,11 @@ const Postcard = ({ post }: { post: PostMeta }) => {
         <p className="text-neutral-500 md:text-base text-[1rem] leading-relaxed">
           {post.excerpt}
         </p>
-        <div className="flex flex-wrap gap-2 text-sm text-orange-500">
+        <div
+          className={`flex ${
+            post.dv && "justify-end"
+          } flex-wrap gap-2 text-sm text-orange-500`}
+        >
           {post.tags?.map((tag) => (
             <Link
               key={tag}
