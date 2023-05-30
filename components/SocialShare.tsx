@@ -15,7 +15,7 @@ const spacegrotesk = Space_Grotesk({
 export default function SocialShare({ full_url }: { full_url: string }) {
   return (
     <div
-      className={`${spacegrotesk.className} flex flex-col justify-center items-center border-t-2 border-orange-500/50 py-4`}
+      className={`${spacegrotesk.className} flex flex-col justify-center items-center border-t-2 border-orange-500/50 my-4 py-4`}
     >
       {/* <p className="text-xs text-orange-900">share this article</p> */}
       <div className="flex gap-4 items-center justify-center">
