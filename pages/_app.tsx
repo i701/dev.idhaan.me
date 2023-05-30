@@ -4,14 +4,15 @@ import Navbar from "../components/Navbar"
 import NProgress from "../components/Progress"
 import { ThemeProvider } from "next-themes"
 
-import { Space_Grotesk, Space_Mono } from "next/font/google"
 import { SWRConfig } from "swr"
 import ErrorBoundary from "../components/ErrorBoundary"
 import { useState } from "react"
 import { Router } from "next/router"
 import Loading from "../components/Loading"
 import { Analytics } from "@vercel/analytics/react"
+import { GlobalContextProvider } from "../context/GlobalContext"
 
+import { Space_Grotesk } from "next/font/google"
 const spacegrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
@@ -45,7 +46,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 },
               }}
             >
-              {pageLoading ? <Loading /> : <Component {...pageProps} />}
+              <GlobalContextProvider>
+                {pageLoading ? <Loading /> : <Component {...pageProps} />}
+              </GlobalContextProvider>
               <Analytics />
             </SWRConfig>
             <NProgress />
