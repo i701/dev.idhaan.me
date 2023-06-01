@@ -103,5 +103,5 @@ export interface IDua {
 export interface IMediaBox {
   mediaSrc: string
   caption: string
-  type: "IMAGE" | "VIDEO"
+  type: "IMAGE" | "VIDEO" | "GIF"
 }
