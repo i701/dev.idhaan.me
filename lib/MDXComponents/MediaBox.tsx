@@ -4,16 +4,14 @@ import { IMediaBox } from "../types"
 const MediaBox = ({ caption, mediaSrc, type = "IMAGE" }: IMediaBox) => {
   return (
     <div
-      className={`rounded w-full mx-auto ${
-        type === "GIF"
-          ? ""
-          : "dark:bg-persian-orange/20 bg-persian-orange/20 dark:border-gray-600 pb-4"
+      className={`w-full mx-auto ${
+        type === "GIF" ? "" : "dark:border-gray-600 pb-4 border-b-2"
       } flex items-center justify-center flex-col gap-2 `}
     >
       <div className="text-center flex flex-col items-center space-y-4 rounded py-4">
         {type === "IMAGE" && (
           <Image
-            className="shadow-md"
+            className="rounded shadow-md h-full w-72 md:w-[22rem]"
             alt={caption || "lmao"}
             src={mediaSrc || ""}
             width={1080}
@@ -22,7 +20,7 @@ const MediaBox = ({ caption, mediaSrc, type = "IMAGE" }: IMediaBox) => {
         )}
         {type === "GIF" && (
           <Image
-            className="shadow-md"
+            className="rounded shadow-md h-full w-72 md:w-[22rem]"
             alt={caption || "lmao"}
             src={mediaSrc || ""}
             width={1080}
@@ -31,7 +29,7 @@ const MediaBox = ({ caption, mediaSrc, type = "IMAGE" }: IMediaBox) => {
         )}
         {type === "VIDEO" && (
           <video
-            className="rounded shadow-md h-full md:w-72"
+            className="rounded shadow-md h-full w-72 md:w-[22rem]"
             autoPlay
             loop
             muted
