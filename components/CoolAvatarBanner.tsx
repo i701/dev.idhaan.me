@@ -15,9 +15,9 @@ const CoolAvatarBanner: React.FC<IAvatarBanner> = () => {
         height={640}
         className="rounded-full h-12 w-12 md:w-12 md:h-12 ring-2 ring-orange-500/50"
       />
-      <div className="text-sm">
+      <div className="text-sm text-left">
         <h4 className="font-bold">Abdulla Aidhaan</h4>
-        <p>Telegram Addict</p>
+        <p>Telegram Enthusiast</p>
       </div>
     </div>
   )
