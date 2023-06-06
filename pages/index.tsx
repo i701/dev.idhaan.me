@@ -43,7 +43,7 @@ const Home = ({ posts }: { posts: PostMeta[] }) => {
             <span className="accent-line">Hello </span>
           </h1>
           <div className="flex justify-between items-center flex-wrap gap-2">
-            <p className="dark:text-gray-400 md:text-base text-[1rem]">
+            <p className="dark:text-gray-400 md:text-xl text-[1rem]">
               Welcome to by blog!
             </p>
 
