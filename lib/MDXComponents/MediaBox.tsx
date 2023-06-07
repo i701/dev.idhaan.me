@@ -5,7 +5,9 @@ const MediaBox = ({ caption, mediaSrc, type = "IMAGE" }: IMediaBox) => {
   return (
     <div
       className={`w-full mx-auto ${
-        type === "GIF" ? "" : "dark:border-gray-600 pb-4 border-b-2"
+        type === "GIF"
+          ? ""
+          : "dark:border-gray-600/10 pb-4 border-b-2 border-gray-300/10"
       } flex items-center justify-center flex-col gap-2 `}
     >
       <div className="text-center flex flex-col items-center space-y-4 rounded py-4">
