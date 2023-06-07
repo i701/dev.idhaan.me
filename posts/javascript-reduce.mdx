@@ -7,6 +7,7 @@ tags:
   - reduce
 date: 2020-05-09
 excerpt: The reduce function of an array is one of the most versatile functions in JavaScript. With it you can accomplish a lot of the functions from array and math objects.
+dv: false
 ---
 
 The [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) function of an `Array` is one of the most versatile functions in JavaScript. With it you can accomplish a lot of the functions from the [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) objects. It's job is to start with an array, and reduce those elements into some other type of data... which sounds vague, but you could use it to convert from an array to an object, an array to another array, an array to a number or an array to a boolean. Understanding how it works opens up a world of possibilities.
@@ -60,13 +61,13 @@ const people = [
   { id: "2", name: "Jenny", age: 30 },
   { id: "3", name: "Heather", age: 28 },
 ]
-````
+```
 
 Although `people.length` would be the more performant and better solution, we can count an array's length by using reduce. Our initial value is 0, and each iteration will add 1 to the previous accumulated value.
 
 <CodeTitle title="Javascript" lang="js" />
 ```js
-result = people.reduce((acc, person) => acc + 1, 0)
+js result = people.reduce((acc, person) => acc + 1, 0) 
 ```
 
 ## Sum Numbers
@@ -74,8 +75,8 @@ result = people.reduce((acc, person) => acc + 1, 0)
 We can sum numbers using reduce. Much like the length example above, we can start with 0, and instead of adding 1 upon each iteration, we can add the `person.age` property to our accumulated value.
 
 <CodeTitle title="Javascript" lang="js" />
-```js
-result = people.reduce((acc, person) => acc + person.age, 0)
+```js 
+result = people.reduce((acc, person) => acc + person.age, 0) 
 ```
 
 ## Mapping with Reduce
@@ -83,7 +84,7 @@ result = people.reduce((acc, person) => acc + person.age, 0)
 Yup... you can map using reduce! In this case our initial value is an empty array, and upon each iteration we can return an array with its previous value, plus the newest value added to the end of our array.
 
 <CodeTitle title="Javascript" lang="js" />
-```js
+```js 
 result = people.reduce((acc, person) => [...acc, person.name], [])
 ```
 
@@ -130,7 +131,6 @@ The reduce callback function when immitating `Array.prototype.find()` contains t
 - The current array element meets our criteria, so let's return it.
 - By returning null we tell the next iteration that the value has not yet been found.
 
-
 <CodeTitle title="Javascript" lang="js" />
 ```js
 result = people.reduce((acc, person) => {
@@ -143,7 +143,6 @@ result = people.reduce((acc, person) => {
 ## Check If Every Value Matches
 
 When checking if every value matches a specific criteria, we will start with the assumption that every value will match... very optimistic!! If the accumulator becomes false, our callback will continue to return false, since every value must match, and otherwise will return `true` or `false` for the current element.
-
 
 <CodeTitle title="Javascript" lang="js" />
 ```js
@@ -179,9 +178,10 @@ const orders = [
 ]
 
 result = orders.reduce((acc, order) => {
-  return { ...acc, [order.status]: (acc[order.status] || 0) + 1 }
+return { ...acc, [order.status]: (acc[order.status] || 0) + 1 }
 }, {})
-```
+
+````
 
 ## Flatten Nested Arrays
 
@@ -205,4 +205,4 @@ function flatten(acc, element) {
 }
 
 result = folders.reduce(flatten, [])
-```
+````

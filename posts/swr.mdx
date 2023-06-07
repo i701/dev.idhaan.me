@@ -6,6 +6,7 @@ tags:
   - javascript
 date: 2019-12-15
 excerpt: SWR is a great package from Zeit to help make it easier to fetch remote data with hooks. It is based on the stale-while-revalidate RFC.
+dv: false
 ---
 
 [SWR](https://swr.now.sh/) is a great package from [Zeit](http://zeit.co/) to help make it easier to fetch remote data with hooks. It is based on the [stale-while-revalidate](https://tools.ietf.org/html/rfc5861) RFC, which in simple terms says to show stale (old) data while you are fetching a new version of the data. The idea is that it is better to show something old if you have it rather than a blank screen.
@@ -28,8 +29,8 @@ useSWR("/crimes/passion", fetcher)
 The fetcher we'll be working with receives the incoming arguments (in our case the URL), passes them on to `fetch`, and then resolves the response to produce JSON.
 
 <CodeTitle title="Javascript" lang="js" />
-```js
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
+```js 
+const fetcher = (...args) => fetch(...args).then((res) => res.json()) 
 ```
 
 ## Global Config Provider
@@ -52,8 +53,7 @@ export default function App() {
 When working with data, be it GraphQL or data from a REST API, I like to separate out data fetching logic from display logic. We'll be doing the same here in this example, and the psuedo-code/logic looks like:
 
 <CodeTitle title="jsx" lang="jsx" />
-```jsx
-function Crimes() {
+```jsx function Crimes() {
   // fetch data
   // handle errors
   // handle loading state
@@ -61,9 +61,10 @@ function Crimes() {
 }
 
 function DisplayCrimes({ crimes }) {
-  // only have to deal with displaying data
+// only have to deal with displaying data
 }
-```
+
+````
 
 Separating data from display also allows you to test visual changes in isolation, useful for testing or showing how the component would look like in [Storybook](https://storybook.js.org/) without having to mock all of your API calls.
 
@@ -90,24 +91,21 @@ function Crimes() {
     />
   )
 }
-```
+````
 
 ### Unique Values in JavaScript
 
 In order to display (and filter) the crime data, I want a unique list of the crime categories. JavaScript doesn't have a way to do this out of the box like you might do `values.uniq` in Ruby. We can make our own very quickly though using a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).
 
 <CodeTitle title="Javascript" lang="js" />
-```js
-// find all categories
-const allCategories = data.map((crime) => crime.category)
-// convert all categories into a set
-const categorySet = new Set(allCategories)
-// convert set back to an array
-const categories = [...categorySet]
+```js // find all categories const allCategories = data.map((crime) => crime.category)
+// convert all categories into a set const categorySet = new Set(allCategories) //
+convert set back to an array const categories = [...categorySet]
 
 // final/shortened solution
 ;[...new Set(data.map((crime) => crime.category))]
-```
+
+````
 
 ## Displaying & Filtering Data
 
@@ -150,7 +148,7 @@ function DisplayCrimes({ crimes, categories }) {
     </>
   )
 }
-```
+````
 
 ## Conclusion
 
