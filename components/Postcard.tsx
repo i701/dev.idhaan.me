@@ -3,7 +3,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import Link from "next/link"
 import { MouseEventHandler, useEffect } from "react"
 import localFont from "next/font/local"
-import { useGlobalContext } from "@/context"
+import { useGlobalContext } from "../context"
 
 const typewriterBold = localFont({
   src: "../public/fonts/MVTypewriter_reg.ttf",
