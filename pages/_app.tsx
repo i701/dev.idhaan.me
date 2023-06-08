@@ -10,7 +10,6 @@ import { useState } from "react"
 import { Router } from "next/router"
 import Loading from "../components/Loading"
 import { Analytics } from "@vercel/analytics/react"
-import { GlobalContextProvider } from "../context/GlobalContext"
 
 import { Space_Grotesk } from "next/font/google"
 const spacegrotesk = Space_Grotesk({
@@ -46,9 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 },
               }}
             >
-              <GlobalContextProvider>
-                {pageLoading ? <Loading /> : <Component {...pageProps} />}
-              </GlobalContextProvider>
+              {pageLoading ? <Loading /> : <Component {...pageProps} />}
               <Analytics />
             </SWRConfig>
             <NProgress />
