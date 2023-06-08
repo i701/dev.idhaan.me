@@ -31,17 +31,19 @@ const spacegrotesk = Space_Grotesk({
   subsets: ["latin"],
 })
 
-const PostPage = ({
-  post,
-  views,
-  FULL_URL,
-}: {
-  post: MDXPost
-  views: number
-  FULL_URL: string
-}) => {
+const PostPage = ({ post, FULL_URL }: { post: MDXPost; FULL_URL: string }) => {
   const [isDv, setIsDv] = useState<boolean>(false)
+  const [views, setViews] = useState<number>(0)
   const router = useRouter()
+
+  useEffect(() => {
+    fetch(`/api/views/${post.meta.slug}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // set views in state
+        setViews(data.views)
+      })
+  }, [post.meta.slug])
 
   useEffect(() => {
     if (post.meta.dv === true) {
@@ -150,17 +152,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   })
 
-  const views = await kv.get(`${slug}`)
-  if (!views) {
-    await kv.set(`${slug}`, "0")
-  }
-  await kv.incr(`${slug}`)
-
   return {
     props: {
       FULL_URL,
       post: { source: mdxSource, meta },
-      views,
     },
   }
 }
