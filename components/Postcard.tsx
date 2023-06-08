@@ -3,20 +3,12 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion"
 import Link from "next/link"
 import { MouseEventHandler, useEffect } from "react"
 import localFont from "next/font/local"
-import { useGlobalContext } from "@/context"
 
 const typewriterBold = localFont({
   src: "../public/fonts/MVTypewriter_reg.ttf",
 })
 
 const Postcard = ({ post }: { post: PostMeta }) => {
-  const { isDhivehi, setIsDhivehi } = useGlobalContext()
-  useEffect(() => {
-    if (post.dv) {
-      setIsDhivehi(true)
-    }
-  }, [post.dv, setIsDhivehi])
-
   let mouseX = useMotionValue(0)
   let mouseY = useMotionValue(0)
 
