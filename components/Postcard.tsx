@@ -5,7 +5,7 @@ import { MouseEventHandler, useEffect } from "react"
 import localFont from "next/font/local"
 
 const typewriterBold = localFont({
-  src: "../public/fonts/MVTypewriter_reg.ttf",
+  src: "../public/fonts/mvtyper.ttf",
 })
 
 const Postcard = ({ post }: { post: PostMeta }) => {
