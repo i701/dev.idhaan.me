@@ -13,10 +13,10 @@ import { MDXComponents } from "@/lib/MDXComponents"
 import localFont from "next/font/local"
 import { useEffect, useRef, useState } from "react"
 const typewriterNormal = localFont({
-  src: "../../public/fonts/MVTypewriter_reg.ttf",
+  src: "../../public/fonts/mvtyper.ttf",
 })
-const typewriterBold = localFont({
-  src: "../../public/fonts/MVTypewriter_bol.ttf",
+const typewriterSemiBold = localFont({
+  src: "../../public/fonts/mvtypewriter_semibold.ttf",
 })
 import kv from "@vercel/kv"
 
@@ -68,11 +68,15 @@ const PostPage = ({ post, FULL_URL }: { post: MDXPost; FULL_URL: string }) => {
         >
           <h1
             className={`
-            ${isDv === true ? typewriterBold.className : spacegrotesk.className}
-            ${isDv === true ? "leading-relaxed" : ""}
-             mt-4 text-3xl md:text-4xl text-black dark:text-zinc-400 font-bold md:leading-loose sm:leading-normal`}
+            ${
+              isDv === true
+                ? typewriterSemiBold.className
+                : spacegrotesk.className
+            }
+            ${isDv === true ? "leading-[42px] font-[700]" : "font-bold"}
+             mt-4 text-3xl md:text-4xl text-black dark:text-zinc-400 md:leading-loose sm:leading-normal`}
           >
-            <span>{post.meta.title}</span>
+            {post.meta.title}
             {/* <pre>{JSON.stringify({ isDv }, null, 2)}</pre> */}
           </h1>
           <div className="flex items-center justify-center mt-4">
