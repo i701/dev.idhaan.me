@@ -1,57 +1,41 @@
 import {
   FacebookShareButton,
-  RedditShareButton,
   TelegramShareButton,
   TwitterShareButton,
+  WhatsappShareButton,
 } from "next-share"
 import { SocialIcon } from "react-social-icons"
-import { Space_Grotesk } from "next/font/google"
 import React from "react"
-const spacegrotesk = Space_Grotesk({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-})
 
 export default function SocialShare({ full_url }: { full_url: string }) {
   return (
-    <div
-      className={`${spacegrotesk.className} flex flex-col justify-center items-center border-t-2 border-orange-500/50 my-4 py-4`}
-    >
+    <div className="flex flex-col justify-center items-center my-4 py-4">
       {/* <p className="text-xs text-orange-900">share this article</p> */}
-      <div className="flex gap-4 items-center justify-center">
+      <div className="grid md:grid-cols-4 grid-cols-2 gap-4">
         <FacebookShareButton url={full_url}>
-          <SocialIcon
-            bgColor="transparent"
-            fgColor="#f97316"
-            style={{ height: 35, width: 35 }}
-            network="facebook"
-            className="w-5 h-5"
-          />
+          <div className="border text-sm rounded gap-2 flex items-center justify-between p-2">
+            <span>Share</span>
+            <SocialIcon style={{ height: 20, width: 20 }} network="facebook" />
+          </div>
         </FacebookShareButton>
         <TelegramShareButton url={full_url}>
-          <SocialIcon
-            bgColor="transparent"
-            fgColor="#f97316"
-            style={{ height: 35, width: 35 }}
-            network="telegram"
-          />
+          <div className="border text-sm rounded gap-2 flex items-center justify-between p-2">
+            <span>Send</span>
+            <SocialIcon style={{ height: 20, width: 20 }} network="telegram" />
+          </div>
         </TelegramShareButton>
         <TwitterShareButton url={full_url}>
-          <SocialIcon
-            bgColor="transparent"
-            fgColor="#f97316"
-            style={{ height: 35, width: 35 }}
-            network="twitter"
-          />
+          <div className="border text-sm rounded gap-2 flex items-center justify-between p-2">
+            <span>Tweet</span>
+            <SocialIcon style={{ height: 20, width: 20 }} network="twitter" />
+          </div>
         </TwitterShareButton>
-        <RedditShareButton url={full_url}>
-          <SocialIcon
-            bgColor="transparent"
-            fgColor="#f97316"
-            style={{ height: 35, width: 35 }}
-            network="reddit"
-          />
-        </RedditShareButton>
+        <WhatsappShareButton url={full_url}>
+          <div className="border text-sm rounded gap-2 flex items-center justify-between p-2">
+            <span>Send</span>
+            <SocialIcon style={{ height: 20, width: 20 }} network="whatsapp" />
+          </div>
+        </WhatsappShareButton>
       </div>
     </div>
   )
