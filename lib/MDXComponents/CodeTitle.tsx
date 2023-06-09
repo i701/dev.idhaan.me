@@ -13,12 +13,6 @@ import {
 import { VscJson } from "react-icons/vsc"
 import { IoLogoJavascript } from "react-icons/io5"
 import { AiOutlineFileText, AiOutlineFolderOpen } from "react-icons/ai"
-import { Space_Grotesk } from "next/font/google"
-
-const spacegrotesk = Space_Grotesk({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-})
 
 type Props = {
   title?: string
@@ -72,7 +66,7 @@ export default function CodeTitle({ title, lang }: Props) {
       break
   }
   return (
-    <div className={spacegrotesk.className}>
+    <div>
       <div className="bg-white text-darkSecondary dark:bg-darkSecondary dark:text-gray-200 rounded-t border-t border-l border-r px-3 dark:border-gray-800 flex items-center justify-between dark:bg-gray-900 dark:border-gray-200/60">
         <Icon className="w-4 h-4 rounded" />
         <p className="!my-0">{title || lang}</p>
