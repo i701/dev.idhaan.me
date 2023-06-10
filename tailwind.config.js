@@ -19,7 +19,7 @@ module.exports = {
         center: true,
       },
       backgroundImage: {
-        line: "url(../assets/text-highlight.png)",
+        line: "url(../public/text-highlight.png)",
       },
     },
   },
