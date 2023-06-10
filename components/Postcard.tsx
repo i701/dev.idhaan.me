@@ -47,7 +47,7 @@ const Postcard = ({ post }: { post: PostMeta }) => {
           text-2xl md:text-2xl text-black font-medium md:leading-loose sm:leading-normal transition duration-150 dark:text-gray-400 focus:outline-none focus:border-orange-600 focus:border-b-2  hover:text-orange-500 dark:hover:text-orange-600`}
           href={`/post/${post.slug}`}
         >
-          {post.title}
+          {post.dv === true ? post.dvTitle : post.title}
         </Link>
         <p className="text-sm text-gray-400">
           {new Date(post.date).toLocaleDateString("en-US", {

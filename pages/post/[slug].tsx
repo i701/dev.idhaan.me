@@ -76,7 +76,7 @@ const PostPage = ({ post, FULL_URL }: { post: MDXPost; FULL_URL: string }) => {
             ${isDv === true ? "leading-[42px] font-[700]" : "font-bold"}
              mt-4 text-3xl md:text-4xl text-black dark:text-zinc-400 md:leading-loose sm:leading-normal`}
           >
-            {post.meta.title}
+            {isDv ? post.meta.dvTitle : post.meta.title}
             {/* <pre>{JSON.stringify({ isDv }, null, 2)}</pre> */}
           </h1>
           <div className="flex items-center justify-center mt-4">
@@ -113,6 +113,7 @@ const PostPage = ({ post, FULL_URL }: { post: MDXPost; FULL_URL: string }) => {
         prose-li:list-disc
         prose-ul:list-inside
         prose-li:leading-loose
+        prose-li:text-orange-500
         prose-a:no-underline
         prose-a:font-bold
         prose-code:font-mono
