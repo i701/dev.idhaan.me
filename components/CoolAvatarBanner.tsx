@@ -1,3 +1,4 @@
+import { AVATAR_BASE64 } from "@/lib/constants"
 import Image from "next/image"
 import React from "react"
 
@@ -9,7 +10,7 @@ const CoolAvatarBanner: React.FC<IAvatarBanner> = () => {
       <Image
         src="/avatar.jpg"
         alt="Profile photo of me"
-        blurDataURL="/avatar.jpg"
+        blurDataURL={AVATAR_BASE64}
         placeholder="blur"
         width={640}
         height={640}
