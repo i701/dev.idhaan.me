@@ -37,7 +37,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 Rather than having to pass the `fetcher` function, and any other config options you may want to set on every call to the `useSWR` hook, you can wrap your components with a provider called `SWRConfig`. This allows you to globally set config options to be used with every `useSWR` hook call. In our example we'll pass the fetcher function to it so it can be used globally.
 
-<CodeTitle title="jsx" lang="jsx" />
+<CodeTitle title="Jsx" lang="jsx" />
 ```jsx
 export default function App() {
   return (
@@ -52,7 +52,7 @@ export default function App() {
 
 When working with data, be it GraphQL or data from a REST API, I like to separate out data fetching logic from display logic. We'll be doing the same here in this example, and the psuedo-code/logic looks like:
 
-<CodeTitle title="jsx" lang="jsx" />
+<CodeTitle title="Jsx" lang="jsx" />
 ```jsx function Crimes() {
   // fetch data
   // handle errors
@@ -74,7 +74,7 @@ Because we are using `SWRConfig` to configure our `useSWR` hook calls globally, 
 
 After dealing with error states and lack of data (loading state), we are now ready to pass the data onto our `DisplayCrimes` component whose job is to simply render the fetched data.
 
-<CodeTitle title="jsx" lang="jsx" />
+<CodeTitle title="Jsx" lang="jsx" />
 ```jsx
 function Crimes() {
   const url =
@@ -114,7 +114,7 @@ Displaying the data really has nothing to do with SWR at this point, but that is
 We will keep track of a `filterCategory` if the user wants only a subset of all the crimes, producing a filtered list of crimes using the [array filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) function.
 
 
-<CodeTitle title="jsx" lang="jsx" />
+<CodeTitle title="Jsx" lang="jsx" />
 ```jsx
 function DisplayCrimes({ crimes, categories }) {
   const [filterCategory, setFilterCategory] = React.useState(null)
