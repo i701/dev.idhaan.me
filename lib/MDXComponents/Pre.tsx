@@ -1,4 +1,3 @@
-import { Space_Grotesk } from "next/font/google"
 import { useState, useRef, ReactNode } from "react"
 
 export default function Pre({ children }: { children?: ReactNode }) {
