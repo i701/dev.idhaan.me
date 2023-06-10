@@ -14,6 +14,7 @@ export interface PostMeta {
   excerpt: string
   slug: string
   title: string
+  dvTitle?: string
   tags?: string[]
   date: string
   dv?: false | boolean
@@ -104,4 +105,5 @@ export interface IMediaBox {
   mediaSrc: string
   caption: string
   type: "IMAGE" | "VIDEO" | "GIF"
+  poster: string
 }
